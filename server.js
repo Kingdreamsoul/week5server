@@ -10,3 +10,8 @@ var certificate = fs.readFileSync('/home/studentuser/certs/client-cert.pem').toS
 var credentials = {key: privateKey, cert: certificate};
 var httpsServer = https.createServer(credentials, app);
 httpsServer.listen(4443);
+app.get('/', function (req, res) {
+ // run some server-side code
+console.log('the server has received a request');
+res.send('Hello World');
+});
